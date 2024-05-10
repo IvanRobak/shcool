@@ -33,3 +33,36 @@ const availableCategories = [
     color: Colors.green,
   ),
 ];
+
+const availableSubjects = [
+  Category(
+    id: 'c1',
+    title: 'Математика',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c2',
+    title: 'Українська мова',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c3',
+    title: 'Історія',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c4',
+    title: 'Природа',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c5',
+    title: 'Основи здоровʼя',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c6',
+    title: 'Англійська',
+    color: Colors.purple,
+  ),
+];

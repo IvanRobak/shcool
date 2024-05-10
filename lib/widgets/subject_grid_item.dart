@@ -27,9 +27,9 @@ class SubjectsGridItem extends StatelessWidget {
           child: Text(
             category.title,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                  color: Theme.of(context).colorScheme.onBackground,
-                ),
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                color: Theme.of(context).colorScheme.onBackground,
+                fontWeight: FontWeight.bold),
           ),
         ),
       ),

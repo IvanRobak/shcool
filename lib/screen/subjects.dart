@@ -20,7 +20,7 @@ class SubjectScreen extends StatelessWidget {
                 mainAxisSpacing: 20,
               ),
               children: [
-                for (final category in availableCategories)
+                for (final category in availableSubjects)
                   SubjectsGridItem(category: category)
               ]),
         ));
