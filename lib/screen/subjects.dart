@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
-import 'package:shcool/screen/subjects.dart';
-import 'package:shcool/widgets/category_grid_item.dart';
+import 'package:shcool/widgets/subject_grid_item.dart';
 
-class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key});
-
-  void _selectCategory(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (ctx) => const SubjectScreen()));
-  }
-
+class SubjectScreen extends StatelessWidget {
+  const SubjectScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Вибери свій клас!'),
+          title: const Text('Вибери предмет!'),
         ),
         body: Padding(
           padding: const EdgeInsets.all(30),
@@ -28,12 +21,7 @@ class CategoryScreen extends StatelessWidget {
               ),
               children: [
                 for (final category in availableCategories)
-                  CategoryGridItem(
-                    category: category,
-                    onSelectCategory: () {
-                      _selectCategory(context);
-                    },
-                  )
+                  SubjectsGridItem(category: category)
               ]),
         ));
   }
