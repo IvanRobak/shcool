@@ -66,3 +66,21 @@ const availableSubjects = [
     color: Colors.purple,
   ),
 ];
+
+const availableChapters = [
+  Category(
+    id: 'c1',
+    title: 'Числа',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c2',
+    title: 'Фігури',
+    color: Colors.purple,
+  ),
+  Category(
+    id: 'c3',
+    title: 'Вимірювання',
+    color: Colors.purple,
+  ),
+];
