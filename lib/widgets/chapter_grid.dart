@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shcool/model/category.dart';
 
 class ChapterGridItem extends StatelessWidget {
-  const ChapterGridItem({super.key, required this.category});
+  const ChapterGridItem({
+    super.key,
+    required this.category,
+  });
+
   final Category category;
 
   @override

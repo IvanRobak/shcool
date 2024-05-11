@@ -14,7 +14,17 @@ class StudyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(imagePath),
+        Expanded(child: Image.asset(imagePath)),
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              color: Theme.of(context).colorScheme.onBackground,
+              fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(
+          height: 20,
+        )
       ],
     );
   }

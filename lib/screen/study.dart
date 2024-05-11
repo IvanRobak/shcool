@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shcool/data/dummy_data.dart';
 import 'package:shcool/widgets/study_tem.dart'; // Замініть на власний шлях
 
 class StudyScreen extends StatelessWidget {
@@ -10,14 +11,18 @@ class StudyScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Study Screen'),
       ),
-      body: GridView.count(
-        crossAxisCount: 1, // 2 колонки
-        children: const [
-          StudyItem(imagePath: 'assets/images/circle.png', title: 'Назва 1'),
-          StudyItem(imagePath: 'assets/images/triangle.png', title: 'Назва 2'),
-          StudyItem(imagePath: 'assets/images/rectangle.png', title: 'Назва 3'),
-          StudyItem(imagePath: 'assets/images/square.png', title: 'Назва 4'),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: GridView.count(
+          crossAxisCount: 1, // 2 колонки
+          children: List.generate(StudyItemData.items.length, (index) {
+            final item = StudyItemData.items[index];
+            return StudyItem(
+              imagePath: item['imagePath']!,
+              title: item['title']!,
+            );
+          }),
+        ),
       ),
     );
   }

@@ -84,3 +84,12 @@ const availableChapters = [
     color: Colors.purple,
   ),
 ];
+
+class StudyItemData {
+  static const List<Map<String, String>> items = [
+    {'imagePath': 'assets/images/circle.png', 'title': 'Круг'},
+    {'imagePath': 'assets/images/triangle.png', 'title': 'Трикутник'},
+    {'imagePath': 'assets/images/rectangle.png', 'title': 'Прямокутник'},
+    {'imagePath': 'assets/images/square.png', 'title': 'Квадрат'},
+  ];
+}
