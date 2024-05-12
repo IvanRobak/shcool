@@ -11,3 +11,10 @@ class Category {
   final String title;
   final Color color;
 }
+
+class CardModel {
+  CardModel({required this.image, required this.options});
+
+  final String image;
+  final List<String> options;
+}
