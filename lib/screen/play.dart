@@ -11,12 +11,22 @@ class PlayScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Грайся!'),
       ),
-      body: ListView.builder(
-        itemCount: cards.length,
-        itemBuilder: (context, index) {
-          return PlayCard(
-              image: cards[index].image, options: cards[index].options);
-        },
+      body: SizedBox(
+        height: 500, // фіксована висота ListView
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: cards.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 1), // додати відступи між картками
+              child: PlayCard(
+                image: cards[index].image,
+                options: cards[index].options,
+              ),
+            );
+          },
+        ),
       ),
     );
   }
