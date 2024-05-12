@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
+import 'package:shcool/screen/play.dart';
 import 'package:shcool/screen/study.dart';
 import 'package:shcool/widgets/chapter_grid.dart';
 
 class ChapterScreen extends StatelessWidget {
   const ChapterScreen({super.key});
 
-  void _selectChapter(BuildContext context) {
+  void _selectStudy(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (ctx) => const StudyScreen()));
+  }
+
+  void _selectPlay(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (ctx) => const PlayScreen()));
   }
 
   @override
@@ -32,14 +38,14 @@ class ChapterScreen extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            _selectChapter(context);
+                            _selectStudy(context);
                           },
                           child: const Text('Вчити'),
                         ),
                         const SizedBox(width: 60),
                         ElevatedButton(
                           onPressed: () {
-                            // Дії при натисканні на другу кнопку
+                            _selectPlay(context);
                           },
                           child: const Text('Грати'),
                         ),

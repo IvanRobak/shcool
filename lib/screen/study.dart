@@ -9,7 +9,7 @@ class StudyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Study Screen'),
+        title: const Text('Навчайся!'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(25),
