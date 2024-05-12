@@ -93,3 +93,15 @@ class StudyItemData {
     {'imagePath': 'assets/images/square.png', 'title': 'Квадрат'},
   ];
 }
+
+ List<CardModel> cards = [
+      CardModel(
+        image: 'assets/images/circle.png',
+        options: ['Трикутник', 'Квадрат', 'Круг', 'Прямокутник'],
+      ),
+      CardModel(
+        image: 'assets/images/triangle.png',
+        options: ['Квадрат', 'Прямокутник', 'Круг', 'Трикутник'],
+      ),
+      // Додайте інші картки за потребою
+    ];
