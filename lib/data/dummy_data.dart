@@ -105,3 +105,12 @@ class StudyItemData {
       ),
       // Додайте інші картки за потребою
     ];
+
+
+// bottomNavigationBar: BottomNavigationBar(
+//         backgroundColor: theme.colorScheme.onInverseSurface,
+//         onTap: (value) {},
+//         items: const [
+//           BottomNavigationBarItem(
+//               icon: Icon(Icons.favorite), label: 'Улюблене'),
+//           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Головна'),
