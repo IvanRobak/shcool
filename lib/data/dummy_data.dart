@@ -94,23 +94,22 @@ class StudyItemData {
   ];
 }
 
- List<CardModel> cards = [
-      CardModel(
-        image: 'assets/images/circle.png',
-        options: ['Трикутник', 'Квадрат', 'Круг', 'Прямокутник'],
-      ),
-      CardModel(
-        image: 'assets/images/triangle.png',
-        options: ['Квадрат', 'Прямокутник', 'Круг', 'Трикутник'],
-      ),
-      // Додайте інші картки за потребою
-    ];
-
-
-// bottomNavigationBar: BottomNavigationBar(
-//         backgroundColor: theme.colorScheme.onInverseSurface,
-//         onTap: (value) {},
-//         items: const [
-//           BottomNavigationBarItem(
-//               icon: Icon(Icons.favorite), label: 'Улюблене'),
-//           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Головна'),
+List<CardModel> cards = [
+  CardModel(
+    image: 'assets/images/circle.png',
+    options: ['Трикутник', 'Квадрат', 'Круг', 'Прямокутник'],
+  ),
+  CardModel(
+    image: 'assets/images/triangle.png',
+    options: ['Квадрат', 'Прямокутник', 'Круг', 'Трикутник'],
+  ),
+  CardModel(
+    image: 'assets/images/square.png',
+    options: ['Прямокутник', 'Квадрат', 'Круг', 'Трикутник'],
+  ),
+  CardModel(
+    image: 'assets/images/rectangle.png',
+    options: ['Круг', 'Прямокутник', 'Квадрат', 'Трикутник'],
+  ),
+  // Додайте інші картки за потребою
+];
