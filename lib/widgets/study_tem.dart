@@ -23,7 +23,7 @@ class _StudyItemState extends State<StudyItem> {
       margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: const Color.fromARGB(255, 66, 64, 64),
+        color: Colors.black.withOpacity(0.5),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
