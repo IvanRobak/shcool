@@ -15,8 +15,9 @@ class CardModel {
     required this.title,
     required this.isFavorite,
     required this.options,
+    required this.id,
   });
-
+  final String id;
   final String imagePath;
   final String title;
   final bool isFavorite;

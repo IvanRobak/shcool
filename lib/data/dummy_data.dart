@@ -97,24 +97,28 @@ class StudyItemData {
 
 List<CardModel> cards = [
   CardModel(
+    id: 'c1',
     imagePath: 'assets/images/circle.png',
     title: 'Трикутник',
     options: ['Трикутник', 'Квадрат', 'Круг', 'Прямокутник'],
     isFavorite: false,
   ),
   CardModel(
+    id: 'c2',
     imagePath: 'assets/images/triangle.png',
     title: 'Квадрат',
     options: ['Квадрат', 'Прямокутник', 'Круг', 'Трикутник'],
     isFavorite: false,
   ),
   CardModel(
+    id: 'c3',
     imagePath: 'assets/images/square.png',
     title: 'Круг',
     options: ['Прямокутник', 'Квадрат', 'Круг', 'Трикутник'],
     isFavorite: false,
   ),
   CardModel(
+    id: 'c4',
     imagePath: 'assets/images/rectangle.png',
     title: 'Прямокутник',
     options: ['Круг', 'Прямокутник', 'Квадрат', 'Трикутник'],
