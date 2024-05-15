@@ -79,6 +79,14 @@ class _StudyItemState extends State<StudyItem> {
                 setState(() {
                   isFavorite = !isFavorite;
                 });
+                ScaffoldMessenger.of(context).clearSnackBars();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(isFavorite
+                        ? 'Meal was edded as a favorite'
+                        : 'Meal removed'),
+                  ),
+                );
               },
             ),
           ),
