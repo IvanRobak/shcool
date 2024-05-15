@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shcool/main.dart';
 
 class PlayCard extends StatelessWidget {
   const PlayCard({super.key, required this.image, required this.options});
@@ -11,12 +10,12 @@ class PlayCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.all(10),
-
-      elevation: 2, // add some elevation for shadow effect
+      elevation: 2,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10)), // rounded corners
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: SizedBox(
-        width: 330, // fixed width
+        width: 330,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,34 +30,18 @@ class PlayCard extends StatelessWidget {
               alignment: WrapAlignment.center,
               spacing: 10,
               runSpacing: 10,
-              children: [
-                for (int i = 0; i < options.length; i += 2)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(0, 40),
-                          fixedSize: const Size(140, 40),
-                          backgroundColor: theme.colorScheme.onInverseSurface,
-                        ),
-                        child: Text(options[i]),
-                      ),
-                      const SizedBox(width: 10),
-                      if (i + 1 < options.length)
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(0, 40),
-                            fixedSize: const Size(140, 40),
-                            backgroundColor: theme.colorScheme.onInverseSurface,
-                          ),
-                          child: Text(options[i + 1]),
-                        ),
-                    ],
+              children: options.map((option) {
+                return ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(0, 40),
+                    fixedSize: const Size(140, 40),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.onInverseSurface,
                   ),
-              ],
+                  child: Text(option),
+                );
+              }).toList(),
             ),
             const SizedBox(height: 20),
           ],

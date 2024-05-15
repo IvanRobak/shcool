@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shcool/model/card.dart';
 import 'package:shcool/model/category.dart';
 
 const availableCategories = [
@@ -96,20 +97,28 @@ class StudyItemData {
 
 List<CardModel> cards = [
   CardModel(
-    image: 'assets/images/circle.png',
+    imagePath: 'assets/images/circle.png',
+    title: 'Трикутник',
     options: ['Трикутник', 'Квадрат', 'Круг', 'Прямокутник'],
+    isFavorite: false,
   ),
   CardModel(
-    image: 'assets/images/triangle.png',
+    imagePath: 'assets/images/triangle.png',
+    title: 'Квадрат',
     options: ['Квадрат', 'Прямокутник', 'Круг', 'Трикутник'],
+    isFavorite: false,
   ),
   CardModel(
-    image: 'assets/images/square.png',
+    imagePath: 'assets/images/square.png',
+    title: 'Круг',
     options: ['Прямокутник', 'Квадрат', 'Круг', 'Трикутник'],
+    isFavorite: false,
   ),
   CardModel(
-    image: 'assets/images/rectangle.png',
+    imagePath: 'assets/images/rectangle.png',
+    title: 'Прямокутник',
     options: ['Круг', 'Прямокутник', 'Квадрат', 'Трикутник'],
+    isFavorite: false,
   ),
   // Додайте інші картки за потребою
 ];

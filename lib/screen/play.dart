@@ -17,12 +17,13 @@ class PlayScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: cards.length,
           itemBuilder: (context, index) {
+            final card = cards[index];
             return Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: 1), // додати відступи між картками
               child: PlayCard(
-                image: cards[index].image,
-                options: cards[index].options,
+                image: card.imagePath,
+                options: card.options,
               ),
             );
           },
