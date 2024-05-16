@@ -5,14 +5,18 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Тут ви можете розмістити вміст вашого екрану з улюбленими елементами
-    return Center(
-      child: Text(
-        'Улюблені елементи',
-        style: Theme.of(context)
-            .textTheme
-            .bodyLarge!
-            .copyWith(color: Theme.of(context).colorScheme.onBackground),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Улюблені елементи'),
+      ),
+      body: Center(
+        child: Text(
+          'Список елементів',
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge!
+              .copyWith(color: Theme.of(context).colorScheme.onBackground),
+        ),
       ),
     );
   }
