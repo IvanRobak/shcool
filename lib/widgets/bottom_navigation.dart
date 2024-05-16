@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatelessWidget {
-  final int currentIndex;
-  final Function(int) onSelect;
-
   const BottomNavigation({
-    Key? key,
+    super.key,
     required this.currentIndex,
     required this.onSelect,
-  }) : super(key: key);
+  });
+  final int currentIndex;
+  final Function(int) onSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +20,7 @@ class BottomNavigation extends StatelessWidget {
           _goToFavorite(context);
         }
       },
+      backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),

@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
+import 'package:shcool/widgets/bottom_navigation.dart';
 import 'package:shcool/widgets/play_card.dart';
 
-class PlayScreen extends StatelessWidget {
+class PlayScreen extends StatefulWidget {
   const PlayScreen({super.key});
+
+  @override
+  State<PlayScreen> createState() => _PlayScreenState();
+}
+
+class _PlayScreenState extends State<PlayScreen> {
+  int _selectedPageIndex = 0;
+
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +42,10 @@ class PlayScreen extends StatelessWidget {
             );
           },
         ),
+      ),
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: _selectedPageIndex,
+        onSelect: _selectPage,
       ),
     );
   }
