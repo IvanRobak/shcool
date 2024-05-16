@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shcool/screen/favorite.dart';
 import 'package:shcool/screen/tabs_screen.dart';
 
 final theme = ThemeData(
@@ -24,6 +25,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       home: const TabsScreen(),
+      routes: {
+        '/favorite': (context) => const FavoriteScreen(),
+        // інші маршрути вашого додатку
+      },
     );
   }
 }
