@@ -65,7 +65,20 @@ class StudyItem extends ConsumerWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 10,
+              )
             ],
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: IconButton(
+              icon: const Icon(
+                Icons.lightbulb,
+              ),
+              onPressed: () {},
+            ),
           ),
           Positioned(
             bottom: 0,
