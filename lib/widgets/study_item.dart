@@ -97,8 +97,8 @@ class _StudyItemState extends ConsumerState<StudyItem> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(isFavorite
-                        ? 'Card was added as a favorite'
-                        : 'Card removed from favorites'),
+                        ? 'Картка додана до улюблений'
+                        : 'Картка видалена з улюблений'),
                   ),
                 );
               },
