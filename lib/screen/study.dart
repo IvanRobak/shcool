@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
 import 'package:shcool/widgets/bottom_navigation.dart';
-import 'package:shcool/widgets/study_tem.dart';
+import 'package:shcool/widgets/study_item.dart';
 
 class StudyScreen extends StatefulWidget {
   const StudyScreen({super.key});

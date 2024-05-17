@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shcool/providers/favorities_provider.dart';
-import 'package:shcool/widgets/study_tem.dart'; // імпортуйте свій StudyItem
+import 'package:shcool/widgets/study_item.dart'; // імпортуйте свій StudyItem
 
 class FavoriteScreen extends ConsumerWidget {
   const FavoriteScreen({super.key});
