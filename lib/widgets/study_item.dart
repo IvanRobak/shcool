@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shcool/model/card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shcool/providers/favorities_provider.dart';
+import 'package:shcool/screen/card_detail.dart';
 
 class StudyItem extends ConsumerWidget {
   const StudyItem({
@@ -9,11 +10,17 @@ class StudyItem extends ConsumerWidget {
     required this.imagePath,
     required this.title,
     required this.card,
+    // required this.description,
   });
 
   final String imagePath;
   final String title;
   final CardModel card;
+  // final String description;
+  void _selectDescription(BuildContext context) {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (ctx) => CardDetailScreen(card: card)));
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -77,7 +84,9 @@ class StudyItem extends ConsumerWidget {
               icon: const Icon(
                 Icons.lightbulb,
               ),
-              onPressed: () {},
+              onPressed: () {
+                _selectDescription(context);
+              },
             ),
           ),
           Positioned(

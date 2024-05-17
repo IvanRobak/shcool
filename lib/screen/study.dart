@@ -35,6 +35,7 @@ class _StudyScreenState extends State<StudyScreen> {
               imagePath: card.imagePath,
               title: card.title,
               card: card,
+              // description: card.description,
             );
           },
         ),

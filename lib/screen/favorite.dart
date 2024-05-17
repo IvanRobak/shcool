@@ -22,6 +22,7 @@ class FavoriteScreen extends ConsumerWidget {
             imagePath: card.imagePath,
             title: card.title,
             card: card,
+            // description: card.description,
           );
         },
       ),
