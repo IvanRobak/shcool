@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
 import 'package:shcool/widgets/bottom_navigation.dart';
-import 'package:shcool/widgets/study_tem.dart'; // Замініть на власний шлях
+import 'package:shcool/widgets/study_tem.dart';
 
 class StudyScreen extends StatefulWidget {
   const StudyScreen({super.key});
@@ -27,15 +27,16 @@ class _StudyScreenState extends State<StudyScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(25),
-        child: GridView.count(
-          crossAxisCount: 1, // 2 колонки
-          children: List.generate(StudyItemData.items.length, (index) {
-            final item = StudyItemData.items[index];
+        child: ListView.builder(
+          itemCount: cards.length,
+          itemBuilder: (BuildContext context, int index) {
+            final card = cards[index];
             return StudyItem(
-              imagePath: item['imagePath']!,
-              title: item['title']!,
+              imagePath: card.imagePath,
+              title: card.title,
+              card: card,
             );
-          }),
+          },
         ),
       ),
       bottomNavigationBar: BottomNavigation(

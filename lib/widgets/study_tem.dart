@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:shcool/model/card.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shcool/providers/favorities_provider.dart';
 
-class StudyItem extends StatefulWidget {
+class StudyItem extends ConsumerStatefulWidget {
   const StudyItem({
     super.key,
     required this.imagePath,
     required this.title,
+    required this.card,
   });
 
   final String imagePath;
   final String title;
+  final CardModel card;
 
   @override
-  State<StudyItem> createState() => _StudyItemState();
+  ConsumerState<StudyItem> createState() => _StudyItemState();
 }
 
-class _StudyItemState extends State<StudyItem> {
-  bool isFavorite = false;
+class _StudyItemState extends ConsumerState<StudyItem> {
+  late bool isFavorite;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorite = ref.read(favoriteCardsNotifier).contains(widget.card);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +87,9 @@ class _StudyItemState extends State<StudyItem> {
                 color: isFavorite ? Colors.red : null,
               ),
               onPressed: () {
+                ref
+                    .read(favoriteCardsNotifier.notifier)
+                    .toggleCardsFavotiStatus(widget.card);
                 setState(() {
                   isFavorite = !isFavorite;
                 });
@@ -83,8 +97,8 @@ class _StudyItemState extends State<StudyItem> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(isFavorite
-                        ? 'Meal was edded as a favorite'
-                        : 'Meal removed'),
+                        ? 'Card was added as a favorite'
+                        : 'Card removed from favorites'),
                   ),
                 );
               },

@@ -13,7 +13,7 @@ final theme = ThemeData(
 
 void main() {
   runApp(const ProviderScope(
-    child: (MyApp()),
+    child: MyApp(),
   ));
 }
 

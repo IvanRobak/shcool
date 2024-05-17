@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shcool/providers/favorities_provider.dart';
+import 'package:shcool/widgets/study_tem.dart'; // імпортуйте свій StudyItem
 
-class FavoriteScreen extends StatelessWidget {
+class FavoriteScreen extends ConsumerWidget {
   const FavoriteScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteCards = ref.watch(favoriteCardsNotifier);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Улюблені елементи'),
       ),
-      body: Center(
-        child: Text(
-          'Список елементів',
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: Theme.of(context).colorScheme.onBackground),
-        ),
+      body: ListView.builder(
+        itemCount: favoriteCards.length,
+        itemBuilder: (context, index) {
+          final card = favoriteCards[index];
+          return StudyItem(
+            imagePath: card.imagePath,
+            title: card.title,
+            card: card,
+          );
+        },
       ),
     );
   }
