@@ -1,13 +1,13 @@
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shcool/model/card.dart';
 
 class FavoriteCardsNotifier extends StateNotifier<List<CardModel>> {
   FavoriteCardsNotifier() : super([]);
 
   bool toggleCardsFavotiStatus(CardModel card) {
-    final cardsFavorite = state.contains(card);
+    final isCurrentlyFavorite = state.contains(card);
 
-    if (cardsFavorite) {
+    if (isCurrentlyFavorite) {
       state = state.where((c) => c.id != card.id).toList();
       return false;
     } else {

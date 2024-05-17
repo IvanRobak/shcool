@@ -3,7 +3,7 @@ import 'package:shcool/model/card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shcool/providers/favorities_provider.dart';
 
-class StudyItem extends ConsumerStatefulWidget {
+class StudyItem extends ConsumerWidget {
   const StudyItem({
     super.key,
     required this.imagePath,
@@ -16,20 +16,9 @@ class StudyItem extends ConsumerStatefulWidget {
   final CardModel card;
 
   @override
-  ConsumerState<StudyItem> createState() => _StudyItemState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isFavorite = ref.watch(favoriteCardsNotifier).contains(card);
 
-class _StudyItemState extends ConsumerState<StudyItem> {
-  late bool isFavorite;
-
-  @override
-  void initState() {
-    super.initState();
-    isFavorite = ref.read(favoriteCardsNotifier).contains(widget.card);
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -54,7 +43,7 @@ class _StudyItemState extends ConsumerState<StudyItem> {
                 borderRadius:
                     const BorderRadius.vertical(top: Radius.circular(8)),
                 child: Image.asset(
-                  widget.imagePath,
+                  imagePath,
                   fit: BoxFit.cover,
                   height: 277,
                 ),
@@ -67,7 +56,7 @@ class _StudyItemState extends ConsumerState<StudyItem> {
                 children: [
                   Expanded(
                     child: Text(
-                      widget.title,
+                      title,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.bold,
@@ -89,16 +78,14 @@ class _StudyItemState extends ConsumerState<StudyItem> {
               onPressed: () {
                 ref
                     .read(favoriteCardsNotifier.notifier)
-                    .toggleCardsFavotiStatus(widget.card);
-                setState(() {
-                  isFavorite = !isFavorite;
-                });
+                    .toggleCardsFavotiStatus(card);
+
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(isFavorite
-                        ? 'Картка додана до улюблений'
-                        : 'Картка видалена з улюблений'),
+                        ? 'Картка видалена з улюблених'
+                        : 'Картка додана до улюблених'),
                   ),
                 );
               },
