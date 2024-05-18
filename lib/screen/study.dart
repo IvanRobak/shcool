@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shcool/data/dummy_data.dart';
+import 'package:shcool/model/card.dart';
+import 'package:shcool/services/data_service.dart';
 import 'package:shcool/widgets/bottom_navigation.dart';
 import 'package:shcool/widgets/study_item.dart';
 
@@ -12,6 +13,21 @@ class StudyScreen extends StatefulWidget {
 
 class _StudyScreenState extends State<StudyScreen> {
   int _selectedPageIndex = 0;
+  late List<CardModel> cards = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCards();
+  }
+
+  void _loadCards() async {
+    final dataService = DataService();
+    final loadedCards = await dataService.loadCards();
+    setState(() {
+      cards = loadedCards;
+    });
+  }
 
   void _selectPage(int index) {
     setState(() {

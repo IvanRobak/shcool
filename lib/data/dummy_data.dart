@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shcool/model/card.dart';
+// import 'package:shcool/model/card.dart';
 import 'package:shcool/model/category.dart';
 
 const availableCategories = [
@@ -95,42 +95,42 @@ class StudyItemData {
   ];
 }
 
-List<CardModel> cards = [
-  CardModel(
-    id: 'c1',
-    imagePath: 'assets/images/circle.png',
-    title: 'Круг',
-    description:
-        'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
-    options: ['Трикутник', 'Квадрат', 'Круг', 'Прямокутник'],
-    isFavorite: false,
-  ),
-  CardModel(
-    id: 'c2',
-    imagePath: 'assets/images/triangle.png',
-    title: 'Трикутник',
-    description:
-        'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
-    options: ['Квадрат', 'Прямокутник', 'Круг', 'Трикутник'],
-    isFavorite: false,
-  ),
-  CardModel(
-    id: 'c3',
-    imagePath: 'assets/images/square.png',
-    title: 'Квадрат',
-    description:
-        'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
-    options: ['Прямокутник', 'Квадрат', 'Круг', 'Трикутник'],
-    isFavorite: false,
-  ),
-  CardModel(
-    id: 'c4',
-    imagePath: 'assets/images/rectangle.png',
-    title: 'Прямокутник',
-    description:
-        'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
-    options: ['Круг', 'Прямокутник', 'Квадрат', 'Трикутник'],
-    isFavorite: false,
-  ),
-  // Додайте інші картки за потребою
-];
+// List<CardModel> cards = [
+//   CardModel(
+//     id: 'c1',
+//     imagePath: 'assets/images/circle.png',
+//     title: 'Круг',
+//     description:
+//         'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
+//     options: ['Трикутник', 'Квадрат', 'Круг', 'Прямокутник'],
+//     isFavorite: false,
+//   ),
+//   CardModel(
+//     id: 'c2',
+//     imagePath: 'assets/images/triangle.png',
+//     title: 'Трикутник',
+//     description:
+//         'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
+//     options: ['Квадрат', 'Прямокутник', 'Круг', 'Трикутник'],
+//     isFavorite: false,
+//   ),
+//   CardModel(
+//     id: 'c3',
+//     imagePath: 'assets/images/square.png',
+//     title: 'Квадрат',
+//     description:
+//         'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
+//     options: ['Прямокутник', 'Квадрат', 'Круг', 'Трикутник'],
+//     isFavorite: false,
+//   ),
+//   CardModel(
+//     id: 'c4',
+//     imagePath: 'assets/images/rectangle.png',
+//     title: 'Прямокутник',
+//     description:
+//         'Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.',
+//     options: ['Круг', 'Прямокутник', 'Квадрат', 'Трикутник'],
+//     isFavorite: false,
+//   ),
+//   // Додайте інші картки за потребою
+// ];
