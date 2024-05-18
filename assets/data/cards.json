@@ -1,0 +1,70 @@
+{
+    "classes": {
+      "class1": {
+        "subjects": {
+          "math": {
+            "chapters": {
+              "figures": {
+                "topics": {
+                  "circle": {
+                    "id": "c1",
+                    "imagePath": "assets/images/circle.png",
+                    "title": "Круг",
+                    "description":
+                        "Круг - це геометрична фігура з усіма точками на однаковій відстані від центру.",
+                    "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                    "isFavorite": false
+                  },
+                  "triangle": {
+                    "id": "c2",
+                    "imagePath": "assets/images/triangle.png",
+                    "title": "Трикутник",
+                    "description":
+                        "Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.",
+                    "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                    "isFavorite": false
+                  },
+                  "square": {
+                    "id": "c3",
+                    "imagePath": "assets/images/square.png",
+                    "title": "Квадрат",
+                    "description":
+                        "Квадрат - це чотирикутник, у якого всі сторони рівні і всі кути прямі.",
+                    "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                    "isFavorite": false
+                  },
+                  "rectangle": {
+                    "id": "c4",
+                    "imagePath": "assets/images/rectangle.png",
+                    "title": "Прямокутник",
+                    "description":
+                        "Прямокутник - це чотирикутник, усі кути якого прямі.",
+                    "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                    "isFavorite": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "class2": {
+        "subjects": {
+          "science": {
+            "chapters": {
+              "elements": {
+                "topics": {
+                  "hydrogen": {
+                    "name": "Hydrogen",
+                    "description": "Hydrogen is the chemical element with the symbol H and atomic number 1.",
+                    "properties": ["atomic number", "atomic mass", "isotopes"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
