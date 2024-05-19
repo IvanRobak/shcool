@@ -50,14 +50,45 @@
       },
       "class2": {
         "subjects": {
-          "science": {
+          "math": {
             "chapters": {
-              "elements": {
+              "measure": {
                 "topics": {
-                  "hydrogen": {
-                    "name": "Hydrogen",
-                    "description": "Hydrogen is the chemical element with the symbol H and atomic number 1.",
-                    "properties": ["atomic number", "atomic mass", "isotopes"]
+                  "millimeter": {
+                    "id": "c5",
+                    "imagePath": "assets/images/measure/millimetr.png",
+                    "title": "міліметр",
+                    "description":
+                        "Міліметр - це одиниця довжини, що дорівнює одній тисячній метра.",
+                    "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                    "isFavorite": false
+                  },
+                  "centimeter": {
+                    "id": "c6",
+                    "imagePath": "assets/images/measure/millimetr.png",
+                    "title": "сантиметр",
+                    "description":
+                        "Сантиметр - це одиниця довжини, що дорівнює одній сотій метра.",
+                    "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                    "isFavorite": false
+                  },
+                  "decimeter": {
+                    "id": "c7",
+                    "imagePath": "assets/images/measure/millimetr.png",
+                    "title": "дециметр",
+                    "description":
+                        "Дециметр - це одиниця довжини, що дорівнює одній десятій метра.",
+                    "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                    "isFavorite": false
+                  },
+                  "meter": {
+                    "id": "c8",
+                    "imagePath": "assets/images/measure/millimetr.png",
+                    "title": "метр",
+                    "description":
+                        "Метр - це базова одиниця довжини в системі СІ, що дорівнює 100 сантиметрам.",
+                    "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                    "isFavorite": false
                   }
                 }
               }
@@ -65,6 +96,6 @@
           }
         }
       }
+      }
     }
-  }
   
