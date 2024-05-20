@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shcool/providers/favorities_provider.dart';
-import 'package:shcool/widgets/study_item.dart'; // імпортуйте свій StudyItem
+import 'package:shcool/widgets/study_item.dart'; 
 
 class FavoriteScreen extends ConsumerWidget {
   const FavoriteScreen({super.key});
@@ -18,7 +18,7 @@ class FavoriteScreen extends ConsumerWidget {
         itemCount: favoriteCards.length,
         itemBuilder: (context, index) {
           final card = favoriteCards[index];
-          return StudyItem(
+          return StudyCard(
             imagePath: card.imagePath,
             title: card.title,
             card: card,

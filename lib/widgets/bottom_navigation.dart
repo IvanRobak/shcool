@@ -6,8 +6,17 @@ class BottomNavigation extends StatelessWidget {
     required this.currentIndex,
     required this.onSelect,
   });
+
   final int currentIndex;
   final Function(int) onSelect;
+
+  void _goToHome(BuildContext context) {
+    Navigator.of(context).popUntil((route) => route.isFirst);
+  }
+
+  void _goToFavorite(BuildContext context) {
+    Navigator.of(context).pushNamed('/favorite');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +41,5 @@ class BottomNavigation extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  void _goToHome(BuildContext context) {
-    Navigator.of(context).popUntil((route) => route.isFirst);
-  }
-
-  void _goToFavorite(BuildContext context) {
-    Navigator.of(context).pushNamed('/favorite');
   }
 }

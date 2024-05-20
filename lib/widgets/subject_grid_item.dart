@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:shcool/model/category.dart';
 
 class SubjectsGridItem extends StatelessWidget {
-  const SubjectsGridItem(
-      {super.key, required this.category, required this.onSelectSubject});
-  final Category category;
+  const SubjectsGridItem({
+    super.key,
+    required this.category,
+    required this.onSelectSubject,
+  });
+  final CategoryModel category;
 
   final void Function() onSelectSubject;
 

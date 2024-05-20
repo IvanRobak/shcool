@@ -7,7 +7,7 @@ class ChapterGridItem extends StatelessWidget {
     required this.category,
   });
 
-  final Category category;
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

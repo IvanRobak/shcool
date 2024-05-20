@@ -47,7 +47,7 @@ class _StudyScreenState extends State<StudyScreen> {
           itemCount: cards.length,
           itemBuilder: (BuildContext context, int index) {
             final card = cards[index];
-            return StudyItem(
+            return StudyCard(
               imagePath: card.imagePath,
               title: card.title,
               card: card,

@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shcool/providers/favorities_provider.dart';
 import 'package:shcool/screen/card_detail.dart';
 
-class StudyItem extends ConsumerWidget {
-  const StudyItem({
+class StudyCard extends ConsumerWidget {
+  const StudyCard({
     super.key,
     required this.imagePath,
     required this.title,
