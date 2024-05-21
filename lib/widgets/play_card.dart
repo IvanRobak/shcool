@@ -35,10 +35,17 @@ class _PlayCardState extends State<PlayCard> {
     });
 
     if (option == widget.correctOption) {
-      widget.onCorrectAnswer();
       await _audioPlayer.play(AssetSource('sounds/correct.mp3'));
+      Future.delayed(const Duration(seconds: 1), () {
+        widget.onCorrectAnswer();
+      });
     } else {
       await _audioPlayer.play(AssetSource('sounds/incorrect.mp3'));
+      Future.delayed(const Duration(seconds: 1), () {
+        setState(() {
+          _selectedOption = null;
+        });
+      });
     }
   }
 
@@ -54,8 +61,6 @@ class _PlayCardState extends State<PlayCard> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: SizedBox(
-        width: 300,
-        height: 400,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,8 +69,8 @@ class _PlayCardState extends State<PlayCard> {
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 widget.image,
-                width: 310,
-                height: 310,
+                width: 325,
+                height: 325,
                 fit: BoxFit.cover,
               ),
             ),

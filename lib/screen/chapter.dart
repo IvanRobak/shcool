@@ -13,14 +13,6 @@ class ChapterScreen extends StatefulWidget {
 }
 
 class _ChapterScreenState extends State<ChapterScreen> {
-  int _selectedPageIndex = 0;
-
-  void _selectPage(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
-  }
-
   void _selectStudy(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (ctx) => const StudyScreen()));
@@ -71,10 +63,6 @@ class _ChapterScreenState extends State<ChapterScreen> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigation(
-        currentIndex: _selectedPageIndex,
-        onSelect: _selectPage,
       ),
     );
   }
