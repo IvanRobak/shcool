@@ -21,6 +21,16 @@ class PlayCard extends StatefulWidget {
 class _PlayCardState extends State<PlayCard> {
   String? _selectedOption;
 
+  @override
+  void didUpdateWidget(covariant PlayCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.image != widget.image) {
+      setState(() {
+        _selectedOption = null;
+      });
+    }
+  }
+
   void _onOptionSelected(String option) {
     setState(() {
       _selectedOption = option;
