@@ -4,6 +4,7 @@ class CardModel {
   final String title;
   final String description;
   final List<String> options;
+  final String correctOption;
   final bool isFavorite;
 
   CardModel({
@@ -12,6 +13,7 @@ class CardModel {
     required this.title,
     required this.description,
     required this.options,
+    required this.correctOption,
     required this.isFavorite,
   });
 
@@ -22,6 +24,7 @@ class CardModel {
       title: json['title'],
       description: json['description'],
       options: List<String>.from(json['options']),
+      correctOption: json['correctOption'],
       isFavorite: json['isFavorite'],
     );
   }

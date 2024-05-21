@@ -1,13 +1,35 @@
 import 'package:flutter/material.dart';
 
-class PlayCard extends StatelessWidget {
-  const PlayCard({super.key, required this.image, required this.options});
+class PlayCard extends StatefulWidget {
+  const PlayCard({
+    super.key,
+    required this.image,
+    required this.options,
+    required this.correctOption,
+  });
 
   final String image;
   final List<String> options;
+  final String correctOption;
+
+  @override
+  State<PlayCard> createState() => _PlayCardState();
+}
+
+class _PlayCardState extends State<PlayCard> {
+  String? _selectedOption;
+
+  void _onOptionSelected(String option) {
+    setState(() {
+      _selectedOption = option;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final correctColor = Theme.of(context).colorScheme.primaryContainer;
+    final incorrectColor = Theme.of(context).colorScheme.onTertiary;
+
     return Card(
       margin: const EdgeInsets.all(10),
       elevation: 2,
@@ -21,7 +43,7 @@ class PlayCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              image,
+              widget.image,
               width: 300,
               height: 300,
             ),
@@ -30,14 +52,19 @@ class PlayCard extends StatelessWidget {
               alignment: WrapAlignment.center,
               spacing: 10,
               runSpacing: 10,
-              children: options.map((option) {
+              children: widget.options.map((option) {
+                final isCorrect = option == widget.correctOption;
+                final isSelected = option == _selectedOption;
                 return ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => _onOptionSelected(option),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(0, 40),
                     fixedSize: const Size(140, 40),
-                    backgroundColor:
-                        Theme.of(context).colorScheme.onInverseSurface,
+                    backgroundColor: isSelected
+                        ? isCorrect
+                            ? correctColor
+                            : incorrectColor
+                        : Theme.of(context).colorScheme.onInverseSurface,
                   ),
                   child: Text(option),
                 );

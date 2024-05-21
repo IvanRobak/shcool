@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/model/card.dart';
 import 'package:shcool/services/data_service.dart';
-// import 'package:shcool/data/dummy_data.dart';
 import 'package:shcool/widgets/bottom_navigation.dart';
 import 'package:shcool/widgets/play_card.dart';
 
@@ -43,18 +42,18 @@ class _PlayScreenState extends State<PlayScreen> {
         title: const Text('Грайся!'),
       ),
       body: SizedBox(
-        height: 500, // фіксована висота ListView
+        height: 500,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: cards.length,
           itemBuilder: (context, index) {
             final card = cards[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 1), // додати відступи між картками
+              padding: const EdgeInsets.symmetric(horizontal: 1),
               child: PlayCard(
                 image: card.imagePath,
                 options: card.options,
+                correctOption: card.correctOption,
               ),
             );
           },

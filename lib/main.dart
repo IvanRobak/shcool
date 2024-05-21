@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
       home: const TabsScreen(),
       routes: {
         '/favorite': (context) => const FavoriteScreen(),
-        // інші маршрути вашого додатку
       },
     );
   }
