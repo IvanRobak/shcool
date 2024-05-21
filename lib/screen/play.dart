@@ -26,8 +26,7 @@ class _PlayScreenState extends State<PlayScreen> {
     _loadCards();
     _confettiController =
         ConfettiController(duration: const Duration(seconds: 10));
-    _pageController =
-        PageController(viewportFraction: 0.85); // Змінено viewportFraction
+    _pageController = PageController(viewportFraction: 0.9);
   }
 
   @override

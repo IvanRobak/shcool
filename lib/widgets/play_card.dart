@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class PlayCard extends StatefulWidget {
   const PlayCard({
@@ -20,24 +21,25 @@ class PlayCard extends StatefulWidget {
 
 class _PlayCardState extends State<PlayCard> {
   String? _selectedOption;
+  final AudioPlayer _audioPlayer = AudioPlayer();
 
   @override
-  void didUpdateWidget(covariant PlayCard oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.image != widget.image) {
-      setState(() {
-        _selectedOption = null;
-      });
-    }
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
   }
 
-  void _onOptionSelected(String option) {
+  void _onOptionSelected(String option) async {
     setState(() {
       _selectedOption = option;
-      if (option == widget.correctOption) {
-        widget.onCorrectAnswer();
-      }
     });
+
+    if (option == widget.correctOption) {
+      widget.onCorrectAnswer();
+      await _audioPlayer.play(AssetSource('sounds/correct.mp3'));
+    } else {
+      await _audioPlayer.play(AssetSource('sounds/incorrect.mp3'));
+    }
   }
 
   @override
@@ -53,7 +55,7 @@ class _PlayCardState extends State<PlayCard> {
       ),
       child: SizedBox(
         width: 300,
-        height: 500,
+        height: 400,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
