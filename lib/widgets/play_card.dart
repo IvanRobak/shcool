@@ -6,11 +6,13 @@ class PlayCard extends StatefulWidget {
     required this.image,
     required this.options,
     required this.correctOption,
+    required this.onCorrectAnswer,
   });
 
   final String image;
   final List<String> options;
   final String correctOption;
+  final VoidCallback onCorrectAnswer;
 
   @override
   State<PlayCard> createState() => _PlayCardState();
@@ -22,6 +24,9 @@ class _PlayCardState extends State<PlayCard> {
   void _onOptionSelected(String option) {
     setState(() {
       _selectedOption = option;
+      if (option == widget.correctOption) {
+        widget.onCorrectAnswer();
+      }
     });
   }
 

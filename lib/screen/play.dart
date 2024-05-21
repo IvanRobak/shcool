@@ -14,6 +14,7 @@ class PlayScreen extends StatefulWidget {
 class _PlayScreenState extends State<PlayScreen> {
   int _selectedPageIndex = 0;
   late List<CardModel> cards = [];
+  int _currentCardIndex = 0;
 
   @override
   void initState() {
@@ -35,6 +36,16 @@ class _PlayScreenState extends State<PlayScreen> {
     });
   }
 
+  void _nextCard() {
+    if (_currentCardIndex < cards.length - 1) {
+      setState(() {
+        _currentCardIndex++;
+      });
+    } else {
+      //......
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,21 +54,14 @@ class _PlayScreenState extends State<PlayScreen> {
       ),
       body: SizedBox(
         height: 500,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: cards.length,
-          itemBuilder: (context, index) {
-            final card = cards[index];
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 1),
-              child: PlayCard(
-                image: card.imagePath,
-                options: card.options,
-                correctOption: card.correctOption,
+        child: cards.isEmpty
+            ? const Center(child: CircularProgressIndicator())
+            : PlayCard(
+                image: cards[_currentCardIndex].imagePath,
+                options: cards[_currentCardIndex].options,
+                correctOption: cards[_currentCardIndex].correctOption,
+                onCorrectAnswer: _nextCard,
               ),
-            );
-          },
-        ),
       ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: _selectedPageIndex,
