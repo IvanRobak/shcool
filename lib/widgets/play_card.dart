@@ -52,17 +52,22 @@ class _PlayCardState extends State<PlayCard> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: SizedBox(
-        width: 330,
+        width: 300,
+        height: 500,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              widget.image,
-              width: 300,
-              height: 300,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                widget.image,
+                width: 310,
+                height: 310,
+                fit: BoxFit.cover,
+              ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Wrap(
               alignment: WrapAlignment.center,
               spacing: 10,

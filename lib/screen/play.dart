@@ -18,6 +18,7 @@ class _PlayScreenState extends State<PlayScreen> {
   late List<CardModel> cards = [];
   int _currentCardIndex = 0;
   late ConfettiController _confettiController;
+  late PageController _pageController;
 
   @override
   void initState() {
@@ -25,11 +26,14 @@ class _PlayScreenState extends State<PlayScreen> {
     _loadCards();
     _confettiController =
         ConfettiController(duration: const Duration(seconds: 10));
+    _pageController =
+        PageController(viewportFraction: 0.85); // Змінено viewportFraction
   }
 
   @override
   void dispose() {
     _confettiController.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -49,8 +53,15 @@ class _PlayScreenState extends State<PlayScreen> {
 
   void _nextCard() {
     if (_currentCardIndex < cards.length - 1) {
-      setState(() {
-        _currentCardIndex++;
+      Future.delayed(const Duration(seconds: 1), () {
+        setState(() {
+          _currentCardIndex++;
+        });
+        _pageController.animateToPage(
+          _currentCardIndex,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
       });
     } else {
       _showCompletionDialog();
@@ -90,21 +101,32 @@ class _PlayScreenState extends State<PlayScreen> {
       appBar: AppBar(
         title: const Text('Грайся!'),
       ),
-      body: Stack(
-        children: [
-          SizedBox(
-            height: 500,
-            child: cards.isEmpty
+      body: SizedBox(
+        height: 500,
+        child: Stack(
+          children: [
+            cards.isEmpty
                 ? const Center(child: CircularProgressIndicator())
-                : PlayCard(
-                    image: cards[_currentCardIndex].imagePath,
-                    options: cards[_currentCardIndex].options,
-                    correctOption: cards[_currentCardIndex].correctOption,
-                    onCorrectAnswer: _nextCard,
+                : PageView.builder(
+                    controller: _pageController,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: cards.length,
+                    itemBuilder: (context, index) {
+                      final card = cards[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        child: PlayCard(
+                          image: card.imagePath,
+                          options: card.options,
+                          correctOption: card.correctOption,
+                          onCorrectAnswer: _nextCard,
+                        ),
+                      );
+                    },
                   ),
-          ),
-          ConfettiOverlay(confettiController: _confettiController),
-        ],
+            ConfettiOverlay(confettiController: _confettiController),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: _selectedPageIndex,
