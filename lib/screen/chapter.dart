@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
 import 'package:shcool/screen/play.dart';
 import 'package:shcool/screen/study.dart';
-import 'package:shcool/widgets/bottom_navigation.dart';
 import 'package:shcool/widgets/chapter_grid.dart';
 
 class ChapterScreen extends StatefulWidget {

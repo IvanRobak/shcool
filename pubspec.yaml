@@ -40,6 +40,9 @@ dependencies:
   flutter_riverpod: ^2.5.1
   confetti: ^0.7.0
   audioplayers: ^6.0.0
+  firebase_core: ^2.31.1
+  firebase_auth: ^4.19.6
+  flutter_email_validator: ^2.1.24
 
 dev_dependencies:
   flutter_test:

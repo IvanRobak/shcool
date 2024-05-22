@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
 import 'package:shcool/screen/chapter.dart';
-import 'package:shcool/widgets/bottom_navigation.dart';
 import 'package:shcool/widgets/subject_grid_item.dart';
 
 class SubjectScreen extends StatefulWidget {
