@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/data/dummy_data.dart';
+import 'package:shcool/screen/auth.dart';
 import 'package:shcool/screen/subjects.dart';
 import 'package:shcool/widgets/category_grid_item.dart';
 
@@ -11,11 +12,23 @@ class CategoryScreen extends StatelessWidget {
         .push(MaterialPageRoute(builder: (ctx) => const SubjectScreen()));
   }
 
+  void _selectAuth(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (ctx) => const AuthScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Вибери свій клас!'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  _selectAuth(context);
+                },
+                icon: const Icon(Icons.person))
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(30),

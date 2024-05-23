@@ -5,6 +5,8 @@ import 'package:shcool/screen/favorite.dart';
 import 'package:shcool/screen/tabs_screen.dart';
 
 final theme = ThemeData(
+    pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {TargetPlatform.android: CupertinoPageTransitionsBuilder()}),
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.dark,
       seedColor: const Color.fromARGB(255, 123, 54, 171),
