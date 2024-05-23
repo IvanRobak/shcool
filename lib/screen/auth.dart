@@ -8,8 +8,21 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  final _formKey = GlobalKey<FormState>();
+  var _enteredEmail = '';
+  var _enteredPassword = '';
+
   bool _isLoggin = false;
   bool _isPasswordVisible = false;
+
+  void _submit() {
+    final isValid = _formKey.currentState!.validate();
+
+    if (isValid) {
+      _formKey.currentState!.save();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +52,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Form(
+                      key: _formKey,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -48,37 +62,61 @@ class _AuthScreenState extends State<AuthScreen> {
                                 labelStyle: TextStyle(
                                     color: Theme.of(context)
                                         .colorScheme
-                                        .background)),
+                                        .background),
+                                errorStyle: const TextStyle(color: Colors.red)),
                             keyboardType: TextInputType.emailAddress,
                             autocorrect: false,
                             textCapitalization: TextCapitalization.none,
+                            validator: (value) {
+                              if (value == null ||
+                                  value.trim().isEmpty ||
+                                  !value.contains('@')) {
+                                return 'Введіть коректний емейл адрес.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _enteredEmail = value!;
+                            },
                           ),
                           TextFormField(
                             obscureText: !_isPasswordVisible,
                             decoration: InputDecoration(
-                              labelText: 'пароль',
-                              labelStyle: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.background),
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  _isPasswordVisible
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
+                                labelText: 'пароль',
+                                labelStyle: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .background),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _isPasswordVisible
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isPasswordVisible = !_isPasswordVisible;
+                                    });
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    _isPasswordVisible = !_isPasswordVisible;
-                                  });
-                                },
-                              ),
-                            ),
+                                errorStyle: const TextStyle(color: Colors.red)),
+                            validator: (value) {
+                              if (value == null || value.trim().length < 6) {
+                                return 'Введіть коректний пароль.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _enteredPassword = value!;
+                            },
                           ),
                           const SizedBox(
                             height: 16,
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              _submit();
+                            },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Theme.of(context)
                                     .colorScheme
