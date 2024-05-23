@@ -8,7 +8,8 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  var _isLoggin = false;
+  bool _isLoggin = false;
+  bool _isPasswordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +42,38 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          TextFormField(),
-                          TextFormField(),
+                          TextFormField(
+                            decoration: InputDecoration(
+                                labelText: 'електронна пошта',
+                                labelStyle: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .background)),
+                            keyboardType: TextInputType.emailAddress,
+                            autocorrect: false,
+                            textCapitalization: TextCapitalization.none,
+                          ),
+                          TextFormField(
+                            obscureText: !_isPasswordVisible,
+                            decoration: InputDecoration(
+                              labelText: 'пароль',
+                              labelStyle: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.background),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _isPasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _isPasswordVisible = !_isPasswordVisible;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
                           const SizedBox(
                             height: 16,
                           ),
