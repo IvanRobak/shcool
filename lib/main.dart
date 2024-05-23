@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shcool/screen/favorite.dart';
 import 'package:shcool/screen/tabs_screen.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 final theme = ThemeData(
     pageTransitionsTheme: const PageTransitionsTheme(
         builders: {TargetPlatform.android: CupertinoPageTransitionsBuilder()}),
@@ -13,7 +16,11 @@ final theme = ThemeData(
     ),
     textTheme: GoogleFonts.latoTextTheme());
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const ProviderScope(
     child: MyApp(),
   ));
