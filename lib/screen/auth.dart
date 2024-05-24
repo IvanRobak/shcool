@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shcool/screen/secret.dart';
 
 final _firebase = FirebaseAuth.instance;
 
@@ -27,16 +28,33 @@ class _AuthScreenState extends State<AuthScreen> {
 
     _formKey.currentState!.save();
 
-    if (_isLoggin) {
-    } else {
-      try {
+    try {
+      if (_isLoggin) {
+        final userCredential = await _firebase.signInWithEmailAndPassword(
+            email: _enteredEmail, password: _enteredPassword);
+        print(userCredential);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const SecretScreen()),
+        );
+      } else {
         final userCredential = await _firebase.createUserWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
         print(userCredential);
-      } on FirebaseAuthException catch (error) {
-        if (error.code == 'email-already-in-use') {
-// ..
-        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+                'Реєстрація успішна! Ввійдіть, використовуючи ваші облікові дані.'),
+          ),
+        );
+      }
+    } on FirebaseAuthException catch (error) {
+      if (error.code == 'email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Цей емейл вже використовується.'),
+          ),
+        );
+      } else {
         ScaffoldMessenger.of(context).clearSnackBars();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -146,7 +164,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                     .colorScheme
                                     .onSurfaceVariant),
                             child: Text(
-                              _isLoggin ? 'Реєстрація' : 'Увійти',
+                              _isLoggin ? 'Увійти' : 'Реєстрація',
                               style: TextStyle(
                                   color: Theme.of(context)
                                       .colorScheme
@@ -161,8 +179,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               },
                               child: Text(
                                 _isLoggin
-                                    ? 'Я вже зареєстрований'
-                                    : 'Створити акаунт',
+                                    ? 'Створити акаунт'
+                                    : 'Я вже зареєстрований',
                                 style: TextStyle(
                                     color: Theme.of(context)
                                         .colorScheme
