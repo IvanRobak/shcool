@@ -17,14 +17,14 @@ class SubjectGridItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          // gradient: LinearGradient(
-          //   colors: [
-          //     subject.color.withOpacity(0.9),
-          //     subject.color.withOpacity(1),
-          //   ],
-          //   begin: Alignment.topLeft,
-          //   end: Alignment.bottomRight,
-          // ),
+          gradient: LinearGradient(
+            colors: [
+              subject.color.withOpacity(0.9),
+              subject.color.withOpacity(1),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
           borderRadius: const BorderRadius.all(Radius.circular(15)),
         ),
         child: Center(

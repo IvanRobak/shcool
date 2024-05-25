@@ -15,15 +15,28 @@ class CategoryGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onSelectCategory,
+      borderRadius: BorderRadius.circular(50),
       child: Container(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: category.color, // Default color
-          borderRadius: BorderRadius.circular(15),
+          gradient: LinearGradient(
+            colors: [
+              category.color.withOpacity(0.9),
+              category.color.withOpacity(1),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          shape: BoxShape.circle,
         ),
-        child: Text(
-          category.title,
-          style: Theme.of(context).textTheme.bodyLarge,
+        child: Center(
+          child: Text(
+            category.title,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
+          ),
         ),
       ),
     );

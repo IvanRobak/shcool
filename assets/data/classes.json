@@ -2,9 +2,10 @@
   "classes": {
     "class1": {
       "color": "#2986cc",
-      "title": "Class 1",
+      "title": "1",
       "subjects": {
         "math": {
+          "color": "#2986cc",
           "id": "math",
           "title": "Math",
           "options": ["Option1", "Option2"],
@@ -15,9 +16,10 @@
     },
     "class2": {
       "color": "#FF0035",
-      "title": "Class 2",
+      "title": "2",
       "subjects": {
         "science": {
+          "color": "#FF0035",
           "id": "science",
           "title": "Science",
           "options": ["Option1", "Option2"],

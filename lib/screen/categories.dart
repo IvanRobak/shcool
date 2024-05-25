@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/screen/auth.dart';
+import 'package:shcool/screen/subjects.dart';
 import 'package:shcool/widgets/category_grid_item.dart';
 import 'package:shcool/services/data_service.dart';
 import 'package:shcool/model/class_model.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
+
+  void _selectCategory(BuildContext context, ClassModel category) {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (ctx) => SubjectScreen(category: category)));
+  }
 
   void _selectAuth(BuildContext context) {
     Navigator.of(context)
@@ -47,7 +53,7 @@ class CategoryScreen extends StatelessWidget {
                     .map((category) => CategoryGridItem(
                           category: category,
                           onSelectCategory: () {
-                            // _selectCategory(context);
+                            _selectCategory(context, category);
                           },
                         ))
                     .toList(),

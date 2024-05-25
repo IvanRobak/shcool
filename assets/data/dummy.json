@@ -1,0 +1,110 @@
+{
+  "classes": {
+    "class1": {
+      "color": "#2986cc",
+      "title": "1",
+      "subjects": {
+        "math": {
+          "color": "#2986cc",
+          "chapters": {
+            "figures": {
+              "topics": {
+                "circle": {
+                  "id": "c1",
+                  "imagePath": "assets/images/circle.png",
+                  "title": "Круг",
+                  "description":
+                      "Круг - це геометрична фігура з усіма точками на однаковій відстані від центру.",
+                  "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                  "correctOption": "Круг",
+                  "isFavorite": false
+                },
+                "triangle": {
+                  "id": "c2",
+                  "imagePath": "assets/images/triangle.png",
+                  "title": "Трикутник",
+                  "description":
+                      "Трикутник - це геометрична фігура з трьома сторонами та трьома кутами.",
+                  "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                  "correctOption": "Трикутник",
+                  "isFavorite": false
+                },
+                "square": {
+                  "id": "c3",
+                  "imagePath": "assets/images/square.png",
+                  "title": "Квадрат",
+                  "description":
+                      "Квадрат - це чотирикутник, у якого всі сторони рівні і всі кути прямі.",
+                  "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                  "correctOption": "Квадрат",
+                  "isFavorite": false
+                },
+                "rectangle": {
+                  "id": "c4",
+                  "imagePath": "assets/images/rectangle.png",
+                  "title": "Прямокутник",
+                  "description":
+                      "Прямокутник - це чотирикутник, усі кути якого прямі.",
+                  "options": ["Трикутник", "Квадрат", "Круг", "Прямокутник"],
+                  "correctOption": "Прямокутник",
+                  "isFavorite": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "class2": {
+      "color": "#FF0035",
+      "title": "2",
+      "subjects": {
+        "math": {
+          "color": "#FF0035",
+          "chapters": {
+            "measure": {
+              "topics": {
+                "millimeter": {
+                  "id": "c5",
+                  "imagePath": "assets/images/measure/millimetr.png",
+                  "title": "міліметр",
+                  "description":
+                      "Міліметр - це одиниця довжини, що дорівнює одній тисячній метра.",
+                  "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                  "isFavorite": false
+                },
+                "centimeter": {
+                  "id": "c6",
+                  "imagePath": "assets/images/measure/millimetr.png",
+                  "title": "сантиметр",
+                  "description":
+                      "Сантиметр - це одиниця довжини, що дорівнює одній сотій метра.",
+                  "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                  "isFavorite": false
+                },
+                "decimeter": {
+                  "id": "c7",
+                  "imagePath": "assets/images/measure/millimetr.png",
+                  "title": "дециметр",
+                  "description":
+                      "Дециметр - це одиниця довжини, що дорівнює одній десятій метра.",
+                  "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                  "isFavorite": false
+                },
+                "meter": {
+                  "id": "c8",
+                  "imagePath": "assets/images/measure/millimetr.png",
+                  "title": "метр",
+                  "description":
+                      "Метр - це базова одиниця довжини в системі СІ, що дорівнює 100 сантиметрам.",
+                  "options": ["міліметр", "сантиметр", "дециметр", "метр"],
+                  "isFavorite": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    }
+  }
