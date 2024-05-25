@@ -73,7 +73,7 @@ flutter:
     - assets/images/square.png
     - assets/images/triangle.png
     - assets/images/chat.png
-    - assets/data/cards.json
+    - assets/data/classes.json
     - assets/images/measure/
     - assets/sounds/correct.mp3
     - assets/sounds/incorrect.mp3

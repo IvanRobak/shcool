@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shcool/model/category.dart';
+import 'package:shcool/model/subject_model.dart';
 
-class SubjectsGridItem extends StatelessWidget {
-  const SubjectsGridItem({
-    super.key,
-    required this.category,
-    required this.onSelectSubject,
-  });
-  final CategoryModel category;
+class SubjectGridItem extends StatelessWidget {
+  const SubjectGridItem(
+      {super.key, required this.subject, required this.onSelectSubject});
 
+  final SubjectModel subject;
   final void Function() onSelectSubject;
 
   @override
@@ -20,23 +17,24 @@ class SubjectsGridItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              category.color.withOpacity(0.9),
-              category.color.withOpacity(1),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          // gradient: LinearGradient(
+          //   colors: [
+          //     subject.color.withOpacity(0.9),
+          //     subject.color.withOpacity(1),
+          //   ],
+          //   begin: Alignment.topLeft,
+          //   end: Alignment.bottomRight,
+          // ),
           borderRadius: const BorderRadius.all(Radius.circular(15)),
         ),
         child: Center(
           child: Text(
-            category.title,
+            subject.title,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: Theme.of(context).colorScheme.onBackground,
-                fontWeight: FontWeight.bold),
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontWeight: FontWeight.bold,
+                ),
           ),
         ),
       ),

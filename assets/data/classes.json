@@ -1,0 +1,30 @@
+{
+  "classes": {
+    "class1": {
+      "color": "#2986cc",
+      "title": "Class 1",
+      "subjects": {
+        "math": {
+          "id": "math",
+          "title": "Math",
+          "options": ["Option1", "Option2"],
+          "correctOption": "Option1",
+          "isFavorite": false
+        }
+      }
+    },
+    "class2": {
+      "color": "#FF0035",
+      "title": "Class 2",
+      "subjects": {
+        "science": {
+          "id": "science",
+          "title": "Science",
+          "options": ["Option1", "Option2"],
+          "correctOption": "Option1",
+          "isFavorite": false
+        }
+      }
+    }
+  }
+}
