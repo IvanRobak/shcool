@@ -1,64 +1,74 @@
-// import 'package:flutter/material.dart';
-// import 'package:shcool/model/topic_model.dart';
-// import 'package:shcool/services/data_service.dart';
-// import 'package:shcool/widgets/bottom_navigation.dart';
-// import 'package:shcool/widgets/study_item.dart';
+import 'package:flutter/material.dart';
+import 'package:shcool/model/topic_model.dart';
+import 'package:shcool/services/data_service.dart';
+import 'package:shcool/widgets/bottom_navigation.dart';
+import 'package:shcool/widgets/study_item.dart';
 
-// class StudyScreen extends StatefulWidget {
-//   const StudyScreen({super.key});
+class StudyScreen extends StatefulWidget {
+  const StudyScreen({
+    super.key,
+    required this.classId,
+    required this.subjectId,
+    required this.chapterId,
+  });
 
-//   @override
-//   State<StudyScreen> createState() => _StudyScreenState();
-// }
+  final String classId;
+  final String subjectId;
+  final String chapterId;
 
-// class _StudyScreenState extends State<StudyScreen> {
-//   int _selectedPageIndex = 0;
-//   late List<TopicModel> cards = [];
+  @override
+  State<StudyScreen> createState() => _StudyScreenState();
+}
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     _loadCards();
-//   }
+class _StudyScreenState extends State<StudyScreen> {
+  int _selectedPageIndex = 0;
+  late List<TopicModel> cards = [];
 
-//   void _loadCards() async {
-//     final dataService = DataService();
-//     final loadedCards = await dataService.loadCards();
-//     setState(() {
-//       cards = loadedCards;
-//     });
-//   }
+  @override
+  void initState() {
+    super.initState();
+    _loadCards();
+  }
 
-//   void _selectPage(int index) {
-//     setState(() {
-//       _selectedPageIndex = index;
-//     });
-//   }
+  void _loadCards() async {
+    final dataService = DataService();
+    final loadedCards = await dataService.loadTopics(
+        widget.classId, widget.subjectId, widget.chapterId);
+    setState(() {
+      cards = loadedCards;
+    });
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Навчайся!'),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(25),
-//         child: ListView.builder(
-//           itemCount: cards.length,
-//           itemBuilder: (BuildContext context, int index) {
-//             final card = cards[index];
-//             return StudyCard(
-//               imagePath: card.imagePath,
-//               title: card.title,
-//               card: card,
-//             );
-//           },
-//         ),
-//       ),
-//       bottomNavigationBar: BottomNavigation(
-//         currentIndex: _selectedPageIndex,
-//         onSelect: _selectPage,
-//       ),
-//     );
-//   }
-// }
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Навчайся!'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: ListView.builder(
+          itemCount: cards.length,
+          itemBuilder: (BuildContext context, int index) {
+            final card = cards[index];
+            return StudyCard(
+              imagePath: card.imagePath,
+              title: card.title,
+              card: card,
+            );
+          },
+        ),
+      ),
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: _selectedPageIndex,
+        onSelect: _selectPage,
+      ),
+    );
+  }
+}

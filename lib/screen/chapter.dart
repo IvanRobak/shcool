@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/model/subject_model.dart';
 import 'package:shcool/screen/play.dart';
+import 'package:shcool/screen/study.dart';
 import 'package:shcool/widgets/chapter_grid.dart';
 
 class ChapterScreen extends StatefulWidget {
@@ -18,6 +19,15 @@ class _ChapterScreenState extends State<ChapterScreen> {
   void _selectPlay(BuildContext context, String chapterId) {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => PlayScreen(
+              classId: widget.classId,
+              subjectId: widget.subject.title,
+              chapterId: chapterId,
+            )));
+  }
+
+  void _selectStudy(BuildContext context, String chapterId) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) => StudyScreen(
               classId: widget.classId,
               subjectId: widget.subject.title,
               chapterId: chapterId,
@@ -50,7 +60,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          // _selectStudy(context); // Якщо потрібно, розкоментуйте та додайте функціонал для навчання
+                          _selectStudy(context,chapterId); // Якщо потрібно, розкоментуйте та додайте функціонал для навчання
                         },
                         child: const Text('Вчити'),
                       ),
