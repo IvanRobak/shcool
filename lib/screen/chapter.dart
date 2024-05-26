@@ -20,7 +20,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => PlayScreen(
               classId: widget.classId,
-              subjectId: widget.subject.title,
+              subjectId: widget.subject.id,
               chapterId: chapterId,
             )));
   }
@@ -29,7 +29,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => StudyScreen(
               classId: widget.classId,
-              subjectId: widget.subject.title,
+              subjectId: widget.subject.id,
               chapterId: chapterId,
             )));
   }
@@ -60,7 +60,7 @@ class _ChapterScreenState extends State<ChapterScreen> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          _selectStudy(context,chapterId); // Якщо потрібно, розкоментуйте та додайте функціонал для навчання
+                          _selectStudy(context, chapterId);
                         },
                         child: const Text('Вчити'),
                       ),

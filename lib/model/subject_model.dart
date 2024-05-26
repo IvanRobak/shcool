@@ -21,7 +21,8 @@ class SubjectModel {
       color: Color(
           int.parse(json['color'].substring(1, 7), radix: 16) + 0xFF000000),
       chapters: (json['chapters'] as Map<String, dynamic>).map(
-        (key, value) => MapEntry(key, ChapterModel.fromJson(value)),
+        (chapterId, chapterJson) =>
+            MapEntry(chapterId, ChapterModel.fromJson(chapterId, chapterJson)),
       ),
     );
   }
