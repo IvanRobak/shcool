@@ -1,4 +1,3 @@
-// models/topic_model.dart
 class TopicModel {
   final String id;
   final String imagePath;
@@ -18,15 +17,15 @@ class TopicModel {
     required this.isFavorite,
   });
 
-  factory TopicModel.fromJson(String id, Map<String, dynamic> json) {
+  factory TopicModel.fromJson(Map<String, dynamic> json) {
     return TopicModel(
-      id: id,
+      id: json['id'],
       imagePath: json['imagePath'],
       title: json['title'],
       description: json['description'],
       options: List<String>.from(json['options']),
       correctOption: json['correctOption'],
-      isFavorite: json['isFavorite'] ?? false,
+      isFavorite: json['isFavorite'],
     );
   }
 }
