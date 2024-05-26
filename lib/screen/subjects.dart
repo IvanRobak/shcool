@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/model/class_model.dart';
+import 'package:shcool/model/subject_model.dart';
+import 'package:shcool/screen/chapter.dart';
 import 'package:shcool/widgets/subject_grid_item.dart';
 
 class SubjectScreen extends StatelessWidget {
+  final ClassModel category;
+
   const SubjectScreen({super.key, required this.category});
 
-  final ClassModel category;
+  void _selectSubject(BuildContext context, SubjectModel subject) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) => ChapterScreen(
+              subject: subject,
+            )));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,30 +22,25 @@ class SubjectScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Вибери предмет!'),
+        title: const Text('Вибери предмет'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(30),
-        child: GridView.builder(
+        child: GridView(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
           ),
-          itemCount: subjects.length,
-          itemBuilder: (ctx, index) {
-            final subject = subjects[index];
-            return SubjectGridItem(
-              subject: subject,
-              onSelectSubject: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //       builder: (ctx) => ChapterScreen(subject: subject)),
-                // );
-              },
-            );
-          },
+          children: subjects
+              .map((subject) => SubjectGridItem(
+                    subject: subject,
+                    onSelectSubject: () {
+                      _selectSubject(context, subject);
+                    },
+                  ))
+              .toList(),
         ),
       ),
     );

@@ -10,6 +10,8 @@
           "color": "#2986cc",
           "chapters": {
             "figures": {
+              "title": "Фігури",
+              "color": "#2986cc",
               "topics": {
                 "circle": {
                   "id": "c1",
@@ -62,6 +64,8 @@
           "color": "#FF0035",
           "chapters": {
             "measure": {
+              "title": "Довжина",
+              "color": "#FF0035",
               "topics": {
                 "millimeter": {
                   "id": "c5",

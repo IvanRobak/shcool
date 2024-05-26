@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shcool/model/card.dart';
+import 'package:shcool/model/topic_model.dart';
 
 class CardDetailScreen extends StatelessWidget {
   const CardDetailScreen({super.key, required this.card});
 
-  final CardModel card;
+  final TopicModel card;
 
   @override
   Widget build(BuildContext context) {

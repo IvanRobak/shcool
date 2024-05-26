@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shcool/model/card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shcool/model/topic_model.dart';
 import 'package:shcool/providers/favorities_provider.dart';
 import 'package:shcool/screen/card_detail.dart';
 
@@ -10,13 +10,12 @@ class StudyCard extends ConsumerWidget {
     required this.imagePath,
     required this.title,
     required this.card,
-    // required this.description,
   });
 
   final String imagePath;
   final String title;
-  final CardModel card;
-  // final String description;
+  final TopicModel card;
+
   void _selectDescription(BuildContext context) {
     Navigator.of(context).push(
         MaterialPageRoute(builder: (ctx) => CardDetailScreen(card: card)));
