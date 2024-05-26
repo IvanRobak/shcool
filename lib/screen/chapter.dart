@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shcool/model/subject_model.dart';
+import 'package:shcool/screen/play.dart';
 import 'package:shcool/widgets/chapter_grid.dart';
 
 class ChapterScreen extends StatefulWidget {
-  const ChapterScreen({super.key, required this.subject});
+  const ChapterScreen(
+      {super.key, required this.classId, required this.subject});
 
+  final String classId;
   final SubjectModel subject;
 
   @override
@@ -12,19 +15,18 @@ class ChapterScreen extends StatefulWidget {
 }
 
 class _ChapterScreenState extends State<ChapterScreen> {
-  // void _selectStudy(BuildContext context) {
-  //   Navigator.of(context)
-  //       .push(MaterialPageRoute(builder: (ctx) => const StudyScreen()));
-  // }
-
-  // void _selectPlay(BuildContext context) {
-  //   Navigator.of(context)
-  //       .push(MaterialPageRoute(builder: (ctx) => const PlayScreen()));
-  // }
+  void _selectPlay(BuildContext context, String chapterId) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) => PlayScreen(
+              classId: widget.classId,
+              subjectId: widget.subject.title,
+              chapterId: chapterId,
+            )));
+  }
 
   @override
   Widget build(BuildContext context) {
-    final chapters = widget.subject.chapters.values.toList();
+    final chapters = widget.subject.chapters;
 
     return Scaffold(
       appBar: AppBar(
@@ -34,36 +36,37 @@ class _ChapterScreenState extends State<ChapterScreen> {
         padding: const EdgeInsets.all(30),
         child: SingleChildScrollView(
           child: Column(
-            children: [
-              for (final chapter in chapters)
-                Column(
-                  children: [
-                    ChapterGridItem(
-                      chapter: chapter,
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // _selectStudy(context);
-                          },
-                          child: const Text('Вчити'),
-                        ),
-                        const SizedBox(width: 60),
-                        ElevatedButton(
-                          onPressed: () {
-                            // _selectPlay(context);
-                          },
-                          child: const Text('Грати'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                  ],
-                ),
-            ],
+            children: chapters.entries.map((entry) {
+              final chapterId = entry.key;
+              final chapter = entry.value;
+              return Column(
+                children: [
+                  ChapterGridItem(
+                    chapter: chapter,
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          // _selectStudy(context); // Якщо потрібно, розкоментуйте та додайте функціонал для навчання
+                        },
+                        child: const Text('Вчити'),
+                      ),
+                      const SizedBox(width: 60),
+                      ElevatedButton(
+                        onPressed: () {
+                          _selectPlay(context, chapterId);
+                        },
+                        child: const Text('Грати'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              );
+            }).toList(),
           ),
         ),
       ),

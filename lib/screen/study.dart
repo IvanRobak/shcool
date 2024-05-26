@@ -1,5 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:shcool/model/card.dart';
+// import 'package:shcool/model/topic_model.dart';
 // import 'package:shcool/services/data_service.dart';
 // import 'package:shcool/widgets/bottom_navigation.dart';
 // import 'package:shcool/widgets/study_item.dart';
@@ -13,7 +13,7 @@
 
 // class _StudyScreenState extends State<StudyScreen> {
 //   int _selectedPageIndex = 0;
-//   late List<CardModel> cards = [];
+//   late List<TopicModel> cards = [];
 
 //   @override
 //   void initState() {
@@ -51,7 +51,6 @@
 //               imagePath: card.imagePath,
 //               title: card.title,
 //               card: card,
-//               // description: card.description,
 //             );
 //           },
 //         ),

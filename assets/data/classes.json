@@ -2,14 +2,17 @@
 {
   "classes": {
     "class1": {
+      "id": "class1",
       "color": "#2986cc",
       "title": "1",
       "subjects": {
         "math": {
+          "id": "math",
           "title": "Математика",
           "color": "#2986cc",
           "chapters": {
             "figures": {
+              "id": "figures",
               "title": "Фігури",
               "color": "#2986cc",
               "topics": {
@@ -56,14 +59,17 @@
       }
     },
     "class2": {
+      "id": "class2",
       "color": "#FF0035",
       "title": "2",
       "subjects": {
         "math": {
+          "id": "math",
           "title": "Математика",
           "color": "#FF0035",
           "chapters": {
             "measure": {
+              "id": "measure",
               "title": "Довжина",
               "color": "#FF0035",
               "topics": {

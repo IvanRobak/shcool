@@ -13,6 +13,7 @@ class SubjectScreen extends StatelessWidget {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (ctx) => ChapterScreen(
               subject: subject,
+              classId: category.id,
             )));
   }
 
