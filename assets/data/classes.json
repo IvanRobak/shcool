@@ -75,7 +75,7 @@
               "topics": {
                 "millimeter": {
                   "id": "c5",
-                  "imagePath": "assets/images/measure/millimetr.png",
+                  "imagePath": "assets/images/measure/measure1.png",
                   "title": "міліметр",
                   "description": "Міліметр - це одиниця довжини, що дорівнює одній тисячній метра.",
                   "options": ["міліметр", "сантиметр", "дециметр", "метр"],
@@ -84,7 +84,7 @@
                 },
                 "centimeter": {
                   "id": "c6",
-                  "imagePath": "assets/images/measure/millimetr.png",
+                  "imagePath": "assets/images/measure/measure3.png",
                   "title": "сантиметр",
                   "description": "Сантиметр - це одиниця довжини, що дорівнює одній сотій метра.",
                   "options": ["міліметр", "сантиметр", "дециметр", "метр"],
@@ -93,7 +93,7 @@
                 },
                 "decimeter": {
                   "id": "c7",
-                  "imagePath": "assets/images/measure/millimetr.png",
+                  "imagePath": "assets/images/measure/measure2.png",
                   "title": "дециметр",
                   "description": "Дециметр - це одиниця довжини, що дорівнює одній десятій метра.",
                   "options": ["міліметр", "сантиметр", "дециметр", "метр"],
