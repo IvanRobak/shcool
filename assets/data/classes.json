@@ -55,23 +55,41 @@
               }
             }
           }
+        },
+        "ukrainian":{
+          "id": "ukr1",
+          "color": "#2986cc",
+          "title": "Українська мова",
+          "chapters":{}
+        },
+        "english":{
+          "id": "eng1",
+          "color": "#2986cc",
+          "title": "Англійська мова",
+          "chapters":{}
+        },
+        "world":{
+          "id": "world1",
+          "color": "#2986cc",
+          "title": "Я досліджую світ",
+          "chapters":{}
         }
       }
     },
     "class2": {
       "id": "class2",
-      "color": "#FF0035",
+      "color": "#db5046",
       "title": "2",
       "subjects": {
         "math": {
           "id": "math",
           "title": "Математика",
-          "color": "#FF0035",
+          "color": "#db5046",
           "chapters": {
             "measure": {
               "id": "measure",
               "title": "Довжина",
-              "color": "#FF0035",
+              "color": "#db5046",
               "topics": {
                 "millimeter": {
                   "id": "c5",
@@ -112,8 +130,38 @@
               }
             }
           }
+        },
+        "ukrainian":{
+          "id": "ukr2",
+          "color": "#db5046",
+          "title": "Українська мова",
+          "chapters":{}
+        },
+        "english":{
+          "id": "eng2",
+          "color": "#db5046",
+          "title": "Англійська мова",
+          "chapters":{}
+        },
+        "world":{
+          "id": "world2",
+          "color": "#db5046",
+          "title": "Я досліджую світ",
+          "chapters":{}
         }
       }
+    },
+    "class3":{
+      "id": "class3",
+      "color": "#b146db",
+      "title": "3",
+      "subjects": {}
+    },
+    "class4":{
+      "id": "class4",
+      "color": "#c9c72e",
+      "title": "4",
+      "subjects": {}
     }
   }
 }
